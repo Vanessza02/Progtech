@@ -1,1 +1,3 @@
-# Progtech
+# Fejlesztők
+- Jánosik Vanessza
+- Varró Bence
