@@ -32,9 +32,14 @@ public class HomePage extends JDialog{
         registBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                CreateUser createUser = new CreateUser(null);
-                createUser.setVisible(true);
+               dispose();
+                RegisterPage register = null;
+                try {
+                    register = new RegisterPage(null);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                register.setVisible(true);
             }
         });
     }
