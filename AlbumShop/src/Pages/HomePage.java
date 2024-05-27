@@ -37,7 +37,7 @@ public class HomePage extends JDialog{
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
-                login.showPage();
+                login.setVisible(true);
             }
         });
 
