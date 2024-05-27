@@ -50,6 +50,6 @@ Nem szükséges telepítés az alkalmazás használatához.
 - 
 
 ## 11. Karbantartási terv
-- 
-- 
-- 
+- Egyes bugok javítása
+- Design korszerűsítése
+- Újabb, frissebb megoldások implementálása
