@@ -19,7 +19,8 @@ Ezzel ellentétben a legfőbb fókszt a backend kapja.
  - Adatvédelem.
 
 ## 5. Funkcionális terv
-
+ - Guest: Csak regisztrálni tud, semmilyen más jogosultsággal nem rendelkezik így nem lát rá az alkalmazás többi részére sem.
+ - User: Sikeres regisztráció és bejelentkezés után a felhasználó megtekintheti az albumokat, ezeket a kosarába helyezheti. A kosarából eltávolíthatja az albumokat.
 
 ## 6. Fizikai környezet
 
