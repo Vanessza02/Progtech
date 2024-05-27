@@ -27,6 +27,7 @@ Ezzel ellentétben a legfőbb fókszt a backend kapja.
 
 ## 7. Adatbázis terv
 
+![localhost _ 127 0 0 1 _ albumshop _ phpMyAdmin 5 2 1 - Google Chrome 2024  05  27  20_32_38](https://github.com/Vanessza02/Progtech/assets/114110363/588add08-dc4e-4265-b7a3-ae1c92302461)
 
 
 ## 8. Tesztterv 
