@@ -9,6 +9,7 @@ A megrendelő azt kérte, hogy egyszerű és könnyen használható legyen a fel
 Ezzel ellentétben a legfőbb fókszt a backend kapja.
 
 ## 3. Üzleti folyamatok modellje
+![image](https://github.com/Vanessza02/Progtech/assets/78543866/1b3acdeb-4de3-4daf-94fc-502548e51634)
 
 
 ## 4. Követelmények
