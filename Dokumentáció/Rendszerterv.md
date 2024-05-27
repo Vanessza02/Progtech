@@ -39,7 +39,7 @@ Ezzel ellentétben a legfőbb fókszt a backend kapja.
 
 
 ## 9. Telepítési terv
-
+Nem szükséges telepítés az alkalmazás használatához.
 
 ## 10. Implementációs terv
 
