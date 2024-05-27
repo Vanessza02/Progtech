@@ -23,7 +23,9 @@ Ezzel ellentétben a legfőbb fókszt a backend kapja.
  - User: Sikeres regisztráció és bejelentkezés után a felhasználó megtekintheti az albumokat, ezeket a kosarába helyezheti. A kosarából eltávolíthatja az albumokat.
 
 ## 6. Fizikai környezet
-
+Az alkalmazás használatához regisztrálnia kell a felhasználónak, anélkül nem adhatja le a rendelését.
+ - Nincsenek megvásárolt komponenseink.
+ - Fejlesztő eszköz: IntelliJ IDEA 2023.2.5
 
 ## 7. Adatbázis terv
 
