@@ -4,7 +4,9 @@
 A rendszer célja az, hogy egy vállalkozás számára nyújtson egy másik opciót az albumok eladására. A vállalkozásnak nincsen online felülete, csak személyesen vehetnek albumokat a vásárlók az üzleteikben. A profit növelésének érdekében a boltok mellett egy online felületet szeretne a megrendelő. A rendszer lehetővé teszi a felhasználók számára, hogy regisztráljanak és a fiókukba történő belépés után leadhatják a rendeléseiket. Ezek után a felhasználó megtekintheti a megrendelésének listáját.
 
 ## 2. Projektterv
-
+Az alkalmazás Java nyelven készül grafikus felülettel, az adatok tárolására PHP mysql-t használunk. Mindketten front- és backenden is dolgozunk.
+A megrendelő azt kérte, hogy egyszerű és könnyen használható legyen a felület kinézete, így a frontend kisebb szerepet kap a fejlesztésben.
+Ezzel ellentétben a legfőbb fókszt a backend kapja.
 
 ## 3. Üzleti folyamatok modellje
 
