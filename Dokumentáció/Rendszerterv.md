@@ -42,12 +42,14 @@ Ezzel ellentétben a legfőbb fókszt a backend kapja.
 Nem szükséges telepítés az alkalmazás használatához.
 
 ## 10. Implementációs terv
-
+Az alkalmazást Java programnyelven implementáljuk, a felhasználók adatait MySQL adatbázisban fogjuk eltárolni, phpMyAdmin-t használva.
 
 ### Funkciók:
-- 
-- 
-- 
+- Regisztráció
+- Bejelentkezés
+- Kosár kilistázása
+- Album kosárba tétele
+- Tétel törlése kosárból
 
 ## 11. Karbantartási terv
 - Egyes bugok javítása
