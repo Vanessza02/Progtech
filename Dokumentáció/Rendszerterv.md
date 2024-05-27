@@ -13,9 +13,10 @@ Ezzel ellentétben a legfőbb fókszt a backend kapja.
 
 
 ## 4. Követelmények
- - 
- - 
- - 
+ - Felhasználók, albumok és rendelési adatok tárolása adatbázisban.
+ - Rendelés létrehozása az albumok kosárba helyezésével.
+ - Kosárban lévő elemek megjelenítése/törlése.
+ - Adatvédelem.
 
 ## 5. Funkcionális terv
 
