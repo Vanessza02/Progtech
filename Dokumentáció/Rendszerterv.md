@@ -33,11 +33,25 @@ Az alkalmazás használatához regisztrálnia kell a felhasználónak, anélkül
 
 
 ## 8. Tesztterv 
+Az alkalmazás teszteléséhez unit teszteket fogunk alkalmazni, ami a programkód zömét lefedi. A tesztek elsődleges célja az eddig meglévő funkcióknak, metódusoknak tesztelése.
 
-
+- Adatbázis tesztelése
+- Adatok beolvasása és visszaadása
+- Gombok tesztelése
+- CRUD műveletek tesztelése
+- Biztonság ellenőrzése (megfelelően vannak-e védve az adatok, jelszó titkosítva van-e)
+- Hibaüzenetek tesztelése (felhasználó által bevitt hibás adatok esetén)
 
 | Teszt neve                          | Eredmény       |
 |-------------------------------------|----------------|
+|Regisztráció helyes adatokkal|Sikeres regisztráció|
+|Regisztráció helytelen adatokkal|Sikertelen regisztráció|
+|Bejelentkezés helyes adatokkal|Sikeres bejelentkezés|
+|Bejelentkezés helytelen adatokkal|Sikertelen bejelentkezés|
+|Album megjelenítése| Sikeres megjelenítés|
+|Rendelés létrehozása|Sikeres létrehozás|
+|Kosárban lévő elemek megjelenítése|Sikeres megjelenítés|
+|Tétel törlése kosárból|Sikeres törlés|
 
 
 ## 9. Telepítési terv
