@@ -52,11 +52,13 @@ public class RegisterPage extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+                Login login = null;
                 try {
-                    Login signInPage = new Login(null);
+                    login = new Login(null);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+                login.setVisible(true);
             }
         });
 
