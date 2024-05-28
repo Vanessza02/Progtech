@@ -106,8 +106,13 @@ public class RegisterPage extends JDialog {
 
         if (user != null) {
             JOptionPane.showMessageDialog(this, "Sikeres regisztráció!");
-            //SignInPages signInPage = new SignInPages(null);
-            dispose();
+            Login login = null;
+            try {
+                login = new Login(null);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            login.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Sikertelen regisztráció!", "Error", JOptionPane.ERROR_MESSAGE);
         }
