@@ -23,7 +23,7 @@ public class HomePage extends JDialog{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setForeground(Color.white);
 
-         File imageFile = new File("C:\\Users\\janos\\Downloads\\Progtech-main\\AlbumShop\\image.jpg");
+         File imageFile = new File("C:\\Progtech\\AlbumShop\\image.jpg");
         Image img = ImageIO.read(imageFile);
         Image scaledImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         kep.setIcon(new ImageIcon(scaledImg));

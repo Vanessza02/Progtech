@@ -29,7 +29,7 @@ public class Login extends JDialog {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setForeground(Color.white);
 
-        File imageFile = new File("C:\\Users\\janos\\Downloads\\Progtech-main\\AlbumShop\\image.jpg");
+        File imageFile = new File("C:\\Progtech\\AlbumShop\\image.jpg");
         Image img = ImageIO.read(imageFile);
         Image scaledImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         kep.setIcon(new ImageIcon(scaledImg));
@@ -65,7 +65,7 @@ public class Login extends JDialog {
     }
 
     private User getAuthenticatedUser(String email, String password) throws IOException {
-        final String DB_URL = "jdbc:mysql://localhost/calendar?serverTimezone=UTC";
+        final String DB_URL = "jdbc:mysql://localhost/albumshop?serverTimezone=UTC";
         final String USERNAME = "root";
         final String PASSWORD = "";
 
