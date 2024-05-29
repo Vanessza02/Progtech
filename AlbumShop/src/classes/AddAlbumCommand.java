@@ -3,6 +3,7 @@ package classes;
 import Albums.AlbumAbstract;
 
 public class AddAlbumCommand implements ICommand{
+    private AlbumAbstract album;
     public AlbumAbstract getAlbum() {
         return album;
     }
@@ -10,8 +11,6 @@ public class AddAlbumCommand implements ICommand{
     public void setAlbum(AlbumAbstract album) {
         this.album = album;
     }
-
-    private AlbumAbstract album;
 
     public AddAlbumCommand(AlbumAbstract album) {
         this.album = album;

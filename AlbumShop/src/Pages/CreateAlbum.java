@@ -22,7 +22,6 @@ public class CreateAlbum extends JDialog {
     private JTextField genreText;
     private JTextField priceText;
     public AlbumAbstract albumAbstract;
-    Albums album = Album.getInstance();
     public CreateAlbum(JFrame parent, AlbumAbstract album){
         super(parent);
         setTitle("Új album létrehozása");
@@ -32,7 +31,6 @@ public class CreateAlbum extends JDialog {
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         albumAbstract = album;
-
         createAlbumBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,11 +71,8 @@ public class CreateAlbum extends JDialog {
 
             int addedRows = preparedStatement.executeUpdate();
             if (addedRows > 0) {
-                album.setArtist(artist);
-                album.setTitle(title);
-                album.setGenre(genre);
-                album.setPrice(price);
-                AddAlbumCommand a = new AddAlbumCommand(albumAbstract, album);
+
+                AddAlbumCommand a = new AddAlbumCommand(albumAbstract);
                 a.ExecuteEvent();
             }
             stm.close();

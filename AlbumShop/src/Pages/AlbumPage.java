@@ -2,7 +2,7 @@ package Pages;
 
 import Albums.AlbumAbstract;
 import classes.Album;
-import classes.DeleteAlbumCommand;
+//import classes.DeleteAlbumCommand;
 import classes.RowListener;
 import classes.TableRowClickListener;
 
@@ -15,42 +15,36 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-public class AlbumPage {
-    public class AlbumsPage extends  JDialog {
+    public class AlbumPage extends  JDialog {
         final String DB_URL = "jdbc:mysql://localhost/albumshop?serverTimezone=UTC";
         final String USERNAME = "root";
         final String PASSWORD = "";
-        private JButton addEvent;
-        private JPanel calendarPage;
+        private JPanel mainPanel;
+        private JButton addBtn;
         private JTable eventsTable;
-        private JLabel titleText;
-        private JButton backButton;
-        private JButton deleteEventButton;
+        private JButton deleteButton;
         private JScrollPane dataPanel;
         private AlbumAbstract albumAbstract;
 
-        public AlbumsPage(JFrame parent, AlbumAbstract album) {
+        public AlbumPage(JFrame parent, AlbumAbstract album) {
             super(parent);
             setTitle("Albumok");
-            setContentPane(calendarPage);
+            setContentPane(mainPanel);
             setMinimumSize(new Dimension(800, 600));
             setModal(true);
             setLocationRelativeTo(parent);
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             albumAbstract = album;
-            titleText.setText(albumAbstract.getTitle());
 
             ListAlbums(albumAbstract.getID());
-            addAlbum.addActionListener(new ActionListener() {
+            addBtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     dispose();
-                    CreateAlbum createAlbumPage = new CreateAlbum(null, albumAbstract);
-                    CreateAlbum.setVisible(true);
+
                 }
             });
-            backButton.addActionListener(new ActionListener() {
+            deleteButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     dispose();
@@ -116,21 +110,21 @@ public class AlbumPage {
 
                 RowListener rl = new RowListener();
                 eventsTable.addMouseListener(new TableRowClickListener(eventsTable, rl));
-                deleteEventButton.addActionListener(new ActionListener() {
+                /*deleteButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         int row = rl.GetSelectedRow();
                         try {
                             DeleteAlbum(albums.get(row));
                             dispose();
-                            AlbumPage a = new AlbumPage(null, albumAbstract);
+                            AlbumPage a = new AlbumPage(null,albumAbstract);
                             a.setVisible(true);
                         } catch (Exception exception) {
                             JOptionPane.showMessageDialog(null, "Nincs kiválasztva sor!");
                         }
 
                     }
-                });
+                });*/
 
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -138,7 +132,7 @@ public class AlbumPage {
 
         }
 
-        private void DeleteAlbum(Album album) {
+        /*private void DeleteAlbum(Album album) {
             try {
                 Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
                 Statement stmt = conn.createStatement();
@@ -150,14 +144,13 @@ public class AlbumPage {
 
                 preparedStatement.execute();
 
-                DeleteAlbumCommand d = new DeleteAlbumCommand(albumAbstract, album);
-                d.ExecuteAlbum();
+                DeleteAlbumCommand d = new DeleteAlbumCommand(albumAbstract);
+                d.ExecuteEvent();
                 dataPanel.revalidate();
                 eventsTable.revalidate();
                 eventsTable.repaint();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-        }
+        }*/
     }
-}

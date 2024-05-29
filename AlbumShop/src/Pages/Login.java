@@ -17,7 +17,7 @@ public class Login extends JDialog {
     private JButton signbutt;
     private JLabel kep;
     private JPanel mainPanel;
-    public User user;
+    public static User user;
 
     public Login(JFrame parent) throws IOException {
         super(parent);
@@ -94,12 +94,8 @@ public class Login extends JDialog {
         }
 
         this.dispose();
-        HomePage homePage = new HomePage(null);
-        homePage.setVisible(true);
+        ListAlbums laPage = new ListAlbums(null);
+        laPage.setVisible(true);
         return user;
     }
-    public void showPage() {
-
-    }
-
 }

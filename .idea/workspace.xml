@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c58ee2ca-8730-4aae-8f47-f3d5b97d64d4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Albums/AlbumAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Albums/AlbumAbstract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/CreateAlbum.form" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/CreateAlbum.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/CreateAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/CreateAlbum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/ListAlbums.form" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/ListAlbums.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/ListAlbums.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/ListAlbums.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlbumShop/src/classes/AddAlbumCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/classes/AddAlbumCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/AlbumPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/CreateAlbum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/Login$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/Login.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +38,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2h9OQHOfwSsW4bQUB2CZiHMwMjI" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -44,21 +50,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Progtech/AlbumShop/jar_files.zip",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Progtech/AlbumShop/jar_files.zip&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="RegisterPagetest.testRegisterUser_WithMissingFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Progtech" />

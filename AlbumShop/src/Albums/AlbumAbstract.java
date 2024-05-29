@@ -1,7 +1,7 @@
 package Albums;
 
 import classes.AddAlbumCommand;
-import classes.DeleteAlbumCommand;
+//import classes.DeleteAlbumCommand;
 import classes.Album;
 
 import java.util.*;
@@ -69,18 +69,18 @@ public abstract class AlbumAbstract extends Observable {
 
     public abstract AlbumAbstract addAlbumToDatabase(int user_id, String artist, String title, String genre, int price);
 
-    List<Album> albumList = new ArrayList<>();
+    List<AlbumAbstract> albumList = new ArrayList<AlbumAbstract>();
 
-    public void addAlbum(Album album){
+    public void addAlbum(AlbumAbstract album){
         albumList.add(album);
         setChanged();
-        notifyObservers(new AddAlbumCommand(this, album));
+        notifyObservers(new AddAlbumCommand(album));
     }
-    public void removeAlbum(Album album){
+    /*public void removeAlbum(Album album){
         albumList.remove(album);
         setChanged();
-        notifyObservers(new DeleteAlbumCommand(this, album));
-    }
+        notifyObservers(new DeleteAlbumCommand(this));
+    }*/
 
     public boolean hasAlbum(Album album){
         return albumList.contains(album);

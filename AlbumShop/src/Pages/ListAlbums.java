@@ -13,12 +13,10 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListAlbums extends JDialog {
-
-
     private JPanel ListAlbumsPanel;
-    private JButton selectedAlbumBtn;
     private JTable albumTable;
     private User user;
 
@@ -40,7 +38,7 @@ public class ListAlbums extends JDialog {
         final String USERNAME = "root";
         final String PASSWORD = "";
 
-        user = new User();
+        User user = new User();
         user.setID(Login.user.getID());
         user.setEmail(Login.user.getEmail());
         user.setUsername(Login.user.getUsername());
@@ -48,7 +46,7 @@ public class ListAlbums extends JDialog {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             Statement stm = conn.createStatement();
-            String query = "SELECT title, type, ID FROM `albumshop` WHERE user_id = ?";
+            String query = "SELECT artist, title, genre, price FROM album WHERE user_id = ?";
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setInt(1, user.getID());
@@ -76,7 +74,7 @@ public class ListAlbums extends JDialog {
             stm.close();
             conn.close();
 
-            RowListener rl = new RowListener();
+            /*RowListener rl = new RowListener();
             albumTable.addMouseListener(new TableRowClickListener(albumTable, rl));
             selectedAlbumBtn.addActionListener(new ActionListener() {
                 @Override
@@ -84,7 +82,7 @@ public class ListAlbums extends JDialog {
                     int row = rl.GetSelectedRow();
                     try {
                         albums.get(row).addObserver(user);
-                        AlbumPage albumPage = new AlbumPage(null, albums.get(row));
+                        AlbumPage albumPage = new AlbumPage();
                         dispose();
                         AlbumPage.setVisible(true);
                     }
@@ -92,7 +90,7 @@ public class ListAlbums extends JDialog {
                         JOptionPane.showMessageDialog(null, "Nincs kiválasztva sor!");
                     }
                 }
-            });
+            });*/
 
         } catch (Exception e) {
             throw new RuntimeException(e);
