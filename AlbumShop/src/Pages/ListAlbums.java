@@ -18,6 +18,7 @@ public class ListAlbums extends JDialog {
     private JButton deleteBtn;
     private JButton updateBtn;
     private JButton addAlbum;
+    private AlbumAbstract albumAbstract;
 
     public ListAlbums(JFrame parent) throws IOException {
         super(parent);
@@ -93,6 +94,13 @@ public class ListAlbums extends JDialog {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
+                }
+            });
+             addAlbum.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    CreateAlbum createAlbumDialog = new CreateAlbum(null,albumAbstract);
+                    createAlbumDialog.setVisible(true);
                 }
             });
             conn.close();
