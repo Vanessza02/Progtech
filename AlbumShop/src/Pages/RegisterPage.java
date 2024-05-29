@@ -17,12 +17,12 @@ import java.util.logging.Logger;
 public class RegisterPage extends JDialog {
 
     final static Logger logger = Logger.getLogger(String.valueOf(RegisterPage.class));
-    private JTextField emailtext;
-    private JTextField jelszotext;
-    private JTextField usernametext;
+    public JTextField emailtext;
+    public JTextField jelszotext;
+    public JTextField usernametext;
     private JButton regbutt;
     private JButton signinbutt;
-    private JLabel kep;
+    public JLabel kep;
     private JPanel mainPanel;
     public User user;
 
