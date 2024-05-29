@@ -52,7 +52,6 @@ public class Login extends JDialog {
                 }
 
                 if (user != null) {
-                    // Authentication was successful
                     dispose();
                     try {
                         ListAlbums laPage = new ListAlbums(null);
@@ -63,7 +62,7 @@ public class Login extends JDialog {
                 }
                 else {
                     JOptionPane.showMessageDialog(Login.this,
-                            "Email or Password Invalid",
+                            "Username or Password Invalid",
                             "Try Again",
                             JOptionPane.ERROR_MESSAGE);
                 }

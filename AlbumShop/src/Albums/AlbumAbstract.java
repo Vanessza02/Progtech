@@ -1,7 +1,7 @@
 package Albums;
 
 import classes.AddAlbumCommand;
-//import classes.DeleteAlbumCommand;
+import classes.DeleteAlbumCommand;
 import classes.Album;
 
 import java.util.*;
@@ -76,13 +76,9 @@ public abstract class AlbumAbstract extends Observable {
         setChanged();
         notifyObservers(new AddAlbumCommand(album));
     }
-    /*public void removeAlbum(Album album){
+    public void removeAlbum(AlbumAbstract album){
         albumList.remove(album);
         setChanged();
         notifyObservers(new DeleteAlbumCommand(this));
-    }*/
-
-    public boolean hasAlbum(Album album){
-        return albumList.contains(album);
     }
 }

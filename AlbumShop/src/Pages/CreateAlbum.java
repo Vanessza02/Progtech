@@ -1,19 +1,13 @@
 package Pages;
 
 import classes.AddAlbumCommand;
-import classes.Album;
 import Albums.AlbumAbstract;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import Albums.*;
 public class CreateAlbum extends JDialog {
     private JPanel createAlbumPanel;
     private JButton createAlbumBtn;
@@ -83,7 +77,12 @@ public class CreateAlbum extends JDialog {
         }
 
         dispose();
-        AlbumPage ap = new AlbumPage(null, albumAbstract);
-        ap.setVisible(true);
+        ListAlbums la = null;
+        try {
+            la = new ListAlbums(null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        la.setVisible(true);
     }
 }

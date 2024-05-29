@@ -1,23 +1,23 @@
 package Pages;
 
-import Albums.AlbumAbstract;
 import classes.RowListener;
 import classes.TableRowClickListener;
-import classes.User;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import static Pages.Login.user;
 
 public class ListAlbums extends JDialog {
     private JPanel ListAlbumsPanel;
     private JTable albumTable;
+    private JButton deleteBtn;
+    private JButton updateBtn;
+    private JButton addAlbum;
 
     public ListAlbums(JFrame parent) throws IOException {
         super(parent);
@@ -38,52 +38,64 @@ public class ListAlbums extends JDialog {
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            Statement stm = conn.createStatement();
-            String query = "SELECT artist, title, genre, price FROM album WHERE user_id = ?";
+            String query = "SELECT ID, artist, title, genre, price FROM album WHERE user_id = ?";
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setInt(1, user.getID());
 
             ResultSet rs = preparedStatement.executeQuery();
-            DefaultTableModel model = (DefaultTableModel) albumTable.getModel();
-
-            String[] colName = new String[]{"Előadó", "Cím", "Műfaj", "Ár"};
-            model.setColumnIdentifiers(colName);
-
-            String artist, title, genre;
-            int price;
-            List<AlbumAbstract> albums = new ArrayList<>();
+            DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Előadó", "Cím", "Műfaj", "Ár"}, 0);
+            albumTable.setModel(model);
 
             while (rs.next()) {
-                artist = rs.getString("artist");
-                title = rs.getString("title");
-                genre = rs.getString("genre");
-                price = rs.getInt("price");
+                int id = rs.getInt("ID");
+                String artist = rs.getString("artist");
+                String title = rs.getString("title");
+                String genre = rs.getString("genre");
+                int price = rs.getInt("price");
 
-                Object[] row = {artist, title, genre, price};
+                Object[] row = {id, artist, title, genre, price};
                 model.addRow(row);
             }
-            stm.close();
-            conn.close();
 
-            /*RowListener rl = new RowListener();
+            RowListener rl = new RowListener();
             albumTable.addMouseListener(new TableRowClickListener(albumTable, rl));
-            selectedAlbumBtn.addActionListener(new ActionListener() {
+            addAlbum.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    int row = rl.GetSelectedRow();
-                    try {
-                        albums.get(row).addObserver(user);
-                        AlbumPage albumPage = new AlbumPage();
-                        dispose();
-                        AlbumPage.setVisible(true);
-                    }
-                    catch (Exception exception){
-                        JOptionPane.showMessageDialog(null, "Nincs kiválasztva sor!");
+
+                }
+            });
+            deleteBtn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    int selectedRow = albumTable.getSelectedRow();
+                    if (selectedRow != -1) {
+                        int albumID = (int) albumTable.getValueAt(selectedRow, 0);
+                        ((DefaultTableModel) albumTable.getModel()).removeRow(selectedRow);
+                        try {
+                            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+                            String deleteQuery = "DELETE FROM album WHERE ID = ?";
+                            PreparedStatement deleteStatement = conn.prepareStatement(deleteQuery);
+                            deleteStatement.setInt(1, albumID);
+                            deleteStatement.executeUpdate();
+                            conn.close();
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                            JOptionPane.showMessageDialog(ListAlbums.this, "Error deleting album.", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(ListAlbums.this, "No album selected.", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
                 }
-            });*/
+            });
+            updateBtn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
 
+                }
+            });
+            conn.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

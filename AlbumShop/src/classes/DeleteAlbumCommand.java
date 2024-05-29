@@ -1,4 +1,4 @@
-/*package classes;
+package classes;
 
 import Albums.AlbumAbstract;
 import classes.Album;
@@ -22,4 +22,3 @@ public class DeleteAlbumCommand implements ICommand{
         this.album = album;
     }
 }
-*/

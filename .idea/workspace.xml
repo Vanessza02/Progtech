@@ -5,19 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c58ee2ca-8730-4aae-8f47-f3d5b97d64d4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlbumShop/src/Albums/AlbumAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Albums/AlbumAbstract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/AlbumPage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/CreateAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/CreateAlbum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/ListAlbums.form" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/ListAlbums.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/ListAlbums.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/ListAlbums.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlbumShop/src/Pages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/Pages/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlbumShop/src/classes/AddAlbumCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/classes/AddAlbumCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlbumShop/src/classes/DeleteAlbumCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlbumShop/src/classes/DeleteAlbumCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Albums/AlbumAbstract.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Progtech/Albums/AlbumAbstract.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/AlbumPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/CreateAlbum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/Login$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/ListAlbums.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Progtech/Pages/ListAlbums.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/Login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Progtech/Pages/Login$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Progtech/Pages/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Progtech/Pages/Login.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
