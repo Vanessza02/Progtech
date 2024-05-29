@@ -52,7 +52,14 @@ public class Login extends JDialog {
                 }
 
                 if (user != null) {
+                    // Authentication was successful
                     dispose();
+                    try {
+                        ListAlbums laPage = new ListAlbums(null);
+                        laPage.setVisible(true);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
                 else {
                     JOptionPane.showMessageDialog(Login.this,
@@ -72,7 +79,6 @@ public class Login extends JDialog {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
 
-            Statement stmt = conn.createStatement();
             String sql = "SELECT * FROM user WHERE username=? AND password=md5(?)";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, email);
@@ -82,20 +88,16 @@ public class Login extends JDialog {
 
             if (resultSet.next()) {
                 user = new User();
-                user.setID(resultSet.getInt(1));
-                user.getEmail();
-                user.getPassword();
+                user.setID(resultSet.getInt("ID"));
+                user.setEmail(resultSet.getString("email"));
+                user.setUsername(resultSet.getString("username"));
             }
 
-            stmt.close();
+            preparedStatement.close();
             conn.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-        this.dispose();
-        ListAlbums laPage = new ListAlbums(null);
-        laPage.setVisible(true);
         return user;
     }
 }
