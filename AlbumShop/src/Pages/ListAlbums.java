@@ -8,17 +8,16 @@ import classes.User;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static Pages.Login.user;
+
 public class ListAlbums extends JDialog {
     private JPanel ListAlbumsPanel;
     private JTable albumTable;
-    private User user;
 
     public ListAlbums(JFrame parent) throws IOException {
         super(parent);
@@ -32,16 +31,10 @@ public class ListAlbums extends JDialog {
         ListAllAlbums();
     }
 
-    private void ListAllAlbums(){
-
+    private void ListAllAlbums() {
         final String DB_URL = "jdbc:mysql://localhost/albumshop?serverTimezone=UTC";
         final String USERNAME = "root";
         final String PASSWORD = "";
-
-        User user = new User();
-        user.setID(Login.user.getID());
-        user.setEmail(Login.user.getEmail());
-        user.setUsername(Login.user.getUsername());
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -58,15 +51,14 @@ public class ListAlbums extends JDialog {
             model.setColumnIdentifiers(colName);
 
             String artist, title, genre;
-            int id, price;
+            int price;
             List<AlbumAbstract> albums = new ArrayList<>();
 
             while (rs.next()) {
-                artist = rs.getString("title");
+                artist = rs.getString("artist");
                 title = rs.getString("title");
                 genre = rs.getString("genre");
                 price = rs.getInt("price");
-                id = rs.getInt("ID");
 
                 Object[] row = {artist, title, genre, price};
                 model.addRow(row);
