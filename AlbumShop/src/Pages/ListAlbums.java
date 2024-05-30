@@ -1,5 +1,6 @@
 package Pages;
 
+import Albums.AlbumAbstract;
 import classes.RowListener;
 import classes.TableRowClickListener;
 import javax.swing.*;
@@ -14,10 +15,10 @@ import static Pages.Login.user;
 
 public class ListAlbums extends JDialog {
     private JPanel ListAlbumsPanel;
-    private JTable albumTable;
-    private JButton deleteBtn;
-    private JButton updateBtn;
-    private JButton addAlbum;
+    public JTable albumTable;
+    public JButton deleteBtn;
+    public JButton updateBtn;
+    public JButton addAlbum;
     private AlbumAbstract albumAbstract;
 
     public ListAlbums(JFrame parent) throws IOException {
@@ -61,12 +62,6 @@ public class ListAlbums extends JDialog {
 
             RowListener rl = new RowListener();
             albumTable.addMouseListener(new TableRowClickListener(albumTable, rl));
-            addAlbum.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                }
-            });
             deleteBtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -93,7 +88,31 @@ public class ListAlbums extends JDialog {
             updateBtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
+                    int selectedRow = albumTable.getSelectedRow();
+                    if (selectedRow != -1) {
+                        int albumID = (int) albumTable.getValueAt(selectedRow, 0);
+                        String artist = (String) albumTable.getValueAt(selectedRow, 1);
+                        String title = (String) albumTable.getValueAt(selectedRow, 2);
+                        String genre = (String) albumTable.getValueAt(selectedRow, 3);
+                        int price = (int) albumTable.getValueAt(selectedRow, 4);
+                        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Előadó", "Cím", "Műfaj", "Ár"}, selectedRow);
+                        try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
+                            String updateQuery = "UPDATE album SET artist = ?, title = ?, genre = ?, price = ? WHERE ID = ?";
+                            PreparedStatement updateStatement = conn.prepareStatement(updateQuery);
+                            updateStatement.setString(1, artist);
+                            updateStatement.setString(2, title);
+                            updateStatement.setString(3, genre);
+                            updateStatement.setInt(4, price);
+                            updateStatement.setInt(5, albumID);
+                            updateStatement.executeUpdate();
+                            JOptionPane.showMessageDialog(ListAlbums.this, "Album updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                            JOptionPane.showMessageDialog(ListAlbums.this, "Error updating album.", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(ListAlbums.this, "No album selected.", "Warning", JOptionPane.WARNING_MESSAGE);
+                    }
                 }
             });
              addAlbum.addActionListener(new ActionListener() {

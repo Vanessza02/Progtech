@@ -1,6 +1,6 @@
 package classes;
 
-public class Album {
+public class Album{
     private int ID;
     private String artist;
     private String title;

@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.*;
+
 public class CreateAlbum extends JDialog {
     private JPanel createAlbumPanel;
     private JButton createAlbumBtn;
@@ -16,7 +17,8 @@ public class CreateAlbum extends JDialog {
     private JTextField genreText;
     private JTextField priceText;
     public AlbumAbstract albumAbstract;
-    public CreateAlbum(JFrame parent, AlbumAbstract album){
+
+    public CreateAlbum(JFrame parent, AlbumAbstract album) {
         super(parent);
         setTitle("Új album létrehozása");
         setContentPane(createAlbumPanel);
@@ -25,6 +27,7 @@ public class CreateAlbum extends JDialog {
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         albumAbstract = album;
+
         createAlbumBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -33,18 +36,22 @@ public class CreateAlbum extends JDialog {
         });
     }
 
-    public void AddAlbumToDatabase(AlbumAbstract al){
-        int user_id = al.getUser_id();
+    public void AddAlbumToDatabase(AlbumAbstract album) {
+        if (album == null) {
+            JOptionPane.showMessageDialog(this, "Album information is missing!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int user_id = album.getUser_id();
         String artist = artistText.getText();
         String title = titleText.getText();
         String genre = genreText.getText();
         int price = Integer.parseInt(priceText.getText());
 
-        if(title.isEmpty() || artist.isEmpty() || genre.isEmpty()){
+        if (title.isEmpty() || artist.isEmpty() || genre.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Az összes mezőt ki kell tölteni!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if(price < 1000 || price > 20000){
+        if (price < 1000 || price > 20000) {
             JOptionPane.showMessageDialog(this, "Nem megfelelő az album ára!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -54,9 +61,8 @@ public class CreateAlbum extends JDialog {
         final String PASSWORD = "";
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            Statement stm = conn.createStatement();
             String sql = "INSERT INTO album(user_id, artist, title, genre, price) VALUES (?,?,?,?,?)";
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            PreparedStatement preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, user_id);
             preparedStatement.setString(2, artist);
             preparedStatement.setString(3, title);
@@ -65,17 +71,22 @@ public class CreateAlbum extends JDialog {
 
             int addedRows = preparedStatement.executeUpdate();
             if (addedRows > 0) {
-
-                AddAlbumCommand a = new AddAlbumCommand(albumAbstract);
+                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int albumID = generatedKeys.getInt(1);
+                }
+                album.setArtist(artist);
+                album.setTitle(title);
+                album.setGenre(genre);
+                album.setPrice(price);
+                AddAlbumCommand a = new AddAlbumCommand(album);
                 a.ExecuteEvent();
             }
-            stm.close();
+            preparedStatement.close();
             conn.close();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
         dispose();
         ListAlbums la = null;
         try {
